@@ -35,5 +35,5 @@ public class GFG {
     }
 }
 
-// This code is contributed by Lovely Jain
+// This code is contributed another person
 

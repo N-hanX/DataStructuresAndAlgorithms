@@ -1,8 +1,5 @@
 package trees.homework;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class diameterOfBinaryTree {
 
     public static void main(String[] args) {

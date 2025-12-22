@@ -25,8 +25,7 @@ public class nChoosePermutation {
 
     public static void combinationHelper(ArrayList<Integer> newList, int k, ArrayList<Integer> remainingList,
                                         List<List<Integer>> allResults, boolean[] mask, int startInd){
-        // k sifirsa su anki listedeki elemani buyuk listeye ekle
-
+        // if k is zero, add the element in current element into the big list.
 
         if(k == 0){
             ArrayList<Integer> copy = new ArrayList<>(newList);
@@ -40,14 +39,14 @@ public class nChoosePermutation {
 
 
         for(int i = startInd; i < remainingList.size(); i++){
-//            if(mask[i] == false){ MASKE GEREK KALMADI! CUNKU ILK ELEMANI EKARTE EDIYORUZ
+//            if(mask[i] == false){ no need to mask! because we eliminate first element
                 // choose any element from the number list
                 int anyElement =  remainingList.get(i);
                 // remove this element from the mask
 //                mask[i] = true;
-                // bir tane liste yarat ve bu elemani ekle
+                // create a list and add the elemnet
                 newList.add(anyElement);
-                // diger alt problemi bu yeni listeyle bir daha yap
+                // repeat the other sub problem with new list
                 combinationHelper(newList, k - 1, remainingList, allResults, mask, i + 1);
                 newList.remove(newList.size() - 1);
 //                mask[i] = false;

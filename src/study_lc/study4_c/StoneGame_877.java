@@ -53,7 +53,7 @@ public class StoneGame_877 {
     public static  int calculateDiffForEachChose(int[] piles, int leftInd, int rightInd, int turn){
         // System.out.println("left: " + leftInd + " right: " + rightInd);
 
-        // System.out.println("curr recursion");
+        // System.out.println("curr main.recursion");
         if(leftInd >= rightInd){
             return 0;
         }

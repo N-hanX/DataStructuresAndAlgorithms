@@ -1,7 +1,5 @@
 package trees.homework;
 
-import com.sun.source.tree.Tree;
-
 public class balancedBstFromSortedArr {
 
     public static void main(String[] args) {

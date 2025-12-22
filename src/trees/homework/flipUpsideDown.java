@@ -1,8 +1,5 @@
 package trees.homework;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class flipUpsideDown {
     static TreeNode newRoot;
     public static void main(String[] args) {

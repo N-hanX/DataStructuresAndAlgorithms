@@ -36,8 +36,6 @@ public class NumberOfWays2MakeChange {
             return dpTable[coinIndex][amount];
         }
 
-        // bu para degerini dikkate almadan elde edilebilecek yontemi ile
-        // bu para degerini dikkate alarak elde edilebilecek
         int result1 = make_change(coinIndex, coins, amount - coins.get(coinIndex), dpTable);
         int result2 = make_change(coinIndex - 1, coins, amount, dpTable); // bu parayi dikkate alma
 

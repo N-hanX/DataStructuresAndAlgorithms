@@ -32,18 +32,14 @@ public class MergeKSortedLinkedList_version2 {
     }
 
     public static LinkedListNode merge_k_lists(List<LinkedListNode> lists) {
-
-        // bu donguyu defalarca kez tekrrarlicaz.
-        // bu donguyu sonlandiran bir sart gerekiyor.
-        // o sartta eger ki butun liste null olduysa
-        // bu sarti yerine getirip getirmedigini kontrol eden bir degisken tutalim.
-        // bu degiskeni once hepsi null diye deger atayalim.
-        // bu degisken ayni kalirsa dongu bitmistir.
-        // bu degisken null degilse dongu devam edecektir.
-
-
-        // sonuc listesini tanimlayalim.
-        //
+        // repeat this loop
+        // end this loop with condition
+        // that is the list is null
+        // keep a variable to check this case
+        // initialize it null
+        // if the variable is same, it is the end
+        // if not, continue
+        // define the result list
 
         LinkedListNode head = new LinkedListNode(-1);
         LinkedListNode prev = head;

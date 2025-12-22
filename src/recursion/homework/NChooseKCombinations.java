@@ -1,8 +1,6 @@
 package recursion.homework;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
 public class NChooseKCombinations {
     public static void main(String[] args) {

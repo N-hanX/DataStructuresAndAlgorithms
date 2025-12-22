@@ -1,6 +1,5 @@
 package graph;
 
-import java.awt.desktop.PreferencesEvent;
 import java.util.*;
 
 public class ShortestPathIn2DGridWithKeysAndDoors {

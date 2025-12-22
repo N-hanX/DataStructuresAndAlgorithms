@@ -1,8 +1,5 @@
 package trees;
 
-import trees.homework.balancedBstFromSortedArr;
-import trees.homework.kthHeightTree;
-
 public class FindModeBinary {
 
     public static void main(String[] args) {

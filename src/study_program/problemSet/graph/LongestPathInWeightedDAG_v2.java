@@ -56,7 +56,7 @@ public class LongestPathInWeightedDAG_v2 {
     }
 
     /*
-    I will quickly try to summarize how topological sorting works. In topological sorting we try to
+    I will quickly try to summarize how topological main.sorting works. In topological main.sorting we try to
     order nodes such that, nodes reachable from any ith node comes after the ith node. Suppose we have
     only 2 nodes 1 and 2 and one edge 1 -> 2 then topological order will be [1 2] because 2 is
     reachable from node 1, hence it should come after 1. We can use dfs to find the topological order.

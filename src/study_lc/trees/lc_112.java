@@ -32,10 +32,6 @@ public class lc_112 {
         if(node == null){
             return false;
         }
-        // 1. soruyu anliyoruz. Netlestiriyoruz.
-        // 2. algoritmayi yaziyoruz.
-        // 3. edge case'leri dusunuyoruz.
-        // 4. test case'leri yaziyoruz.
 
         if(node.left == null && node.right == null){
             if(node.val == sum){

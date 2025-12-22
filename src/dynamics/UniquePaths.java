@@ -12,8 +12,8 @@ public class UniquePaths {
         for(int i = 0; i < n; i++){
             for(int j = 0; j < m; j++){
 
-                // 2 tane yol var.
-                // 1 tanesi solunadki kolona gelme sayisi digeri ustundeki kolona gelmesa sayisi bunlarin toplami
+                // there are two ways
+                // one is the number of matching in its left column and the other is the number of matching in its upper column
                 if(i == 0 || j == 0)
                     dpTable[i][j] = 1;
                 else
