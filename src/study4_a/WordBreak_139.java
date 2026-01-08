@@ -1,12 +1,9 @@
 package study4_a;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 
 public class WordBreak_139 {
-    class TrieNode{
+    static class TrieNode{
         Map<Character, TrieNode> charMap;
         boolean end;
         public TrieNode(){
@@ -19,8 +16,8 @@ public class WordBreak_139 {
         }
     }
 
-    TrieNode root;
-    public boolean wordBreak(String s, List<String> wordDict) {
+    static TrieNode root;
+    public static boolean wordBreak(String s, List<String> wordDict) {
         root = createTrie(wordDict);
         Stack<Integer> startStack = new Stack<>();
         Stack<Integer> endStack = new Stack<>();
@@ -28,11 +25,13 @@ public class WordBreak_139 {
         // sliding window
         int i = 0;
         int j = 0;
-        // boolean[] visited = new boolean[s.length() + 1];
+        boolean[] visited = new boolean[s.length() + 1];
         while(i < s.length()){
             boolean found = false;
-            while(j < s.length()){
-                if(isSegment(s, root, i, j)){
+            while(j < s.length() && !visited[i]){
+                String substring = s.substring(i, j + 1);
+                // System.out.println(substring);
+                if(isSegment(substring, root)){
                     startStack.push(i);
                     endStack.push(j);
                     found = true;
@@ -48,6 +47,9 @@ public class WordBreak_139 {
             if(!found){
                 // backtrack time
                 if(!startStack.isEmpty()){
+                    // if nothing is found after the current start index 'i',
+                    // this also means there is no other way possible and record this path as visited.
+                    visited[i] = true;
                     i = startStack.pop();
                     j = endStack.pop() + 1;
                 }else{
@@ -58,11 +60,11 @@ public class WordBreak_139 {
         return false;
     }
 
-    public boolean isSegment(String s, TrieNode root, int start, int end){
+    public static boolean isSegment(String s, TrieNode root){
         TrieNode temp = root;
-        int i = start;
+        int i = 0;
 
-        while(i <= end){
+        while(i < s.length()){
             char curr_char = s.charAt(i);
             if(temp.charMap.containsKey(curr_char)){
                 temp = temp.charMap.get(curr_char);
@@ -74,7 +76,7 @@ public class WordBreak_139 {
         return temp.end;
     }
 
-    public TrieNode createTrie(List<String> wordDict){
+    public static TrieNode createTrie(List<String> wordDict){
         TrieNode root = new TrieNode();
 
         for(int i = 0; i < wordDict.size(); i++){
@@ -83,6 +85,8 @@ public class WordBreak_139 {
 
             for(int j = 0; j < word.length(); j++){
                 char curr_char = word.charAt(j);
+                // traverse simultaneously through trie node (starting from root),
+                // and the word from its start index while creating required nodes or choosing the existing node branch
                 if(temp.charMap.containsKey(curr_char)){
                     temp = temp.charMap.get(curr_char);
                 }else{
@@ -97,5 +101,9 @@ public class WordBreak_139 {
             }
         }
         return root;
+    }
+
+    static void main() {
+        System.out.println(wordBreak("leetcode",new ArrayList<>(Arrays.asList("leet","code"))));
     }
 }
