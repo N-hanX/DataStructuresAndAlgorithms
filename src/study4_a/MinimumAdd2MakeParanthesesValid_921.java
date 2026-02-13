@@ -1,10 +1,13 @@
 package study4_a;
 
+import java.util.Deque;
+import java.util.LinkedList;
+
 public class MinimumAdd2MakeParanthesesValid_921 {
     static void main() {
         // TEST 1
-        String s = "())";
-        int result = minAddToMakeValid_v1(s);
+//        String s = "())";
+//        int result = minAddToMakeValid_v1(s);
 
         // TEST 2
 //        String s = "(((";
@@ -14,9 +17,42 @@ public class MinimumAdd2MakeParanthesesValid_921 {
 //        String s = "()))((";
 //        int result = minAddToMakeValid_v1(s);
 
-    }
-    public static int minAddToMakeValid_v2(String s) {
 
+        // OTHER VERSION
+        // TEST 1
+//        String s = "())";
+//        int result = minAddToMakeValid_v2(s);
+
+        // TEST 2
+//        String s = "(((";
+//        int result = minAddToMakeValid_v2(s);
+//
+//        // TEST 3
+        String s = "()))((";
+        int result = minAddToMakeValid_v2(s);
+
+        int a = 4;
+
+    }
+
+    // Easy to understand version. Uses a common stack logic similar to operator precedence problems.
+    public static int minAddToMakeValid_v2(String s) {
+        Deque<Character> paranthesisStack = new LinkedList<>();
+        
+        for(int i = 0; i < s.length(); i++){
+            char curr_char = s.charAt(i);
+
+            if(curr_char == '('){
+                paranthesisStack.push(curr_char);
+            }else{
+                if(!paranthesisStack.isEmpty() && paranthesisStack.peek() == '('){
+                    paranthesisStack.pop();
+                }else{
+                    paranthesisStack.push(curr_char);
+                }
+            }
+        }
+        return paranthesisStack.size();
     }
 
     public static int minAddToMakeValid_v1(String s) {
