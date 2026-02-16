@@ -38,7 +38,7 @@ public class MinimumAdd2MakeParanthesesValid_921 {
     // Easy to understand version. Uses a common stack logic similar to operator precedence problems.
     public static int minAddToMakeValid_v2(String s) {
         Deque<Character> paranthesisStack = new LinkedList<>();
-        
+
         for(int i = 0; i < s.length(); i++){
             char curr_char = s.charAt(i);
 
